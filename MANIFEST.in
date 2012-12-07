@@ -1,0 +1,4 @@
+include *.py
+include *.c
+include COPYING
+include *.rst
