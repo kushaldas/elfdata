@@ -8,7 +8,7 @@ module1 = Extension('elfdata',
                     extra_compile_args=['-std=c99'])
 
 setup (name = 'elfdata',
-       version = '0.2',
+       version = '0.3',
        description = 'elfdata from elf files',
        author = 'Kushal Das',
        author_email = 'kushaldas@gmail.com',
