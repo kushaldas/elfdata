@@ -284,9 +284,13 @@ match_module (Dwfl_Module *mod,
       name = file;
     }
 
-  for (char **p = info->patterns; *p != NULL; ++p)
+  /*for (char **p = info->patterns; *p != NULL; ++p)
     if (fnmatch (*p, name, 0) == 0)
-      goto match;
+      goto match;*/
+
+  char **p = info->patterns;
+  if (*p && (fnmatch (*p, name, 0) == 0))
+    goto match;
 
   return DWARF_CB_OK;
 }
@@ -298,7 +302,7 @@ handle_implicit_modules (const struct arg_info *info)
 {
   PyObject *ids = PyList_New(0);
   PyObject *tmp;
-  struct match_module_info mmi = {info->args, NULL, info->match_files };
+  struct match_module_info mmi = {info->args, NULL, true };
   inline ptrdiff_t next (ptrdiff_t offset)
     {
       return dwfl_getmodules (info->dwfl, &match_module, &mmi, offset);
