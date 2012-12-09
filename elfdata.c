@@ -309,7 +309,7 @@ handle_implicit_modules (const struct arg_info *info)
     }
   ptrdiff_t offset = next (0);
   if (offset == 0)
-    error (EXIT_FAILURE, 0, "no matching modules found");
+    return ids;
 
   do {
       tmp = list_module (mmi.found);
