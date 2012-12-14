@@ -372,7 +372,7 @@ elfdata_parseelf(PyObject *self, PyObject *args)
 
 static PyMethodDef ElfDataMethods[] = {
     {"get_buildid",  elfdata_parseelf, METH_VARARGS,
-     "Does some magic"},
+     "gets GNU_BUILD_ID of the given ELF."},
     /*{"pythoncall",  kabireport_pythoncall, METH_VARARGS,
      "pass the python functions here"},*/
     {NULL, NULL, 0, NULL}        /* Sentinel */
